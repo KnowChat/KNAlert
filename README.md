@@ -1,10 +1,5 @@
 # KNAlert
 
-[![CI Status](https://img.shields.io/travis/yinhaofrancis/KNAlert.svg?style=flat)](https://travis-ci.org/yinhaofrancis/KNAlert)
-[![Version](https://img.shields.io/cocoapods/v/KNAlert.svg?style=flat)](https://cocoapods.org/pods/KNAlert)
-[![License](https://img.shields.io/cocoapods/l/KNAlert.svg?style=flat)](https://cocoapods.org/pods/KNAlert)
-[![Platform](https://img.shields.io/cocoapods/p/KNAlert.svg?style=flat)](https://cocoapods.org/pods/KNAlert)
-
 ## Example
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.

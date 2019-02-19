@@ -43,19 +43,6 @@
     [self.lastWindow.lastObject makeKeyAndVisible];
     [self.lastWindow.lastObject becomeKeyWindow];
     [self.lastWindow removeObjectAtIndex: self.lastWindow.count - 1];
-    //    [self.arySubViews removeObject:view];
-//    if (self.arySubViews.count == 0)
-//    {
-//        [self resignKeyWindow];
-//        if (APP.chatWindow)
-//        {
-//            [APP.chatWindow makeKeyAndVisible];
-//        }
-//        else
-//        {
-//            [APP.window makeKeyAndVisible];
-//        }
-//    }
 }
 -(void)showAlert:(UIView *)view{
     [self showAlert:view Callback:nil];
@@ -132,8 +119,8 @@
             UIView *v = self.view;
             self.view = nil;
             [self removeView:v Callback:^{
-                dispatch_semaphore_signal(h);
                 dispatch_semaphore_signal(m);
+                dispatch_semaphore_signal(h);
                 if (Call){
                     Call();
                 }
