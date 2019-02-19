@@ -1,0 +1,27 @@
+PODS:
+  - FBSnapshotTestCase (2.1.4):
+    - FBSnapshotTestCase/SwiftSupport (= 2.1.4)
+  - FBSnapshotTestCase/Core (2.1.4)
+  - FBSnapshotTestCase/SwiftSupport (2.1.4):
+    - FBSnapshotTestCase/Core
+  - KNAlert (0.1.0)
+
+DEPENDENCIES:
+  - FBSnapshotTestCase
+  - KNAlert (from `../`)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - FBSnapshotTestCase
+
+EXTERNAL SOURCES:
+  KNAlert:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
+  KNAlert: 456d4ba52462258bbfdd4d8cb65d94eddf3880fa
+
+PODFILE CHECKSUM: a7e65f6bebf77f0ee0495fb196e2e1397d8291e7
+
+COCOAPODS: 1.5.3

@@ -1,0 +1,6 @@
+framework module KNAlert {
+  umbrella header "KNAlert-umbrella.h"
+
+  export *
+  module * { export * }
+}

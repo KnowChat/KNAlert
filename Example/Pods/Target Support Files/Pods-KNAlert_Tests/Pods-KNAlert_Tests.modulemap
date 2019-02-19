@@ -1,0 +1,6 @@
+framework module Pods_KNAlert_Tests {
+  umbrella header "Pods-KNAlert_Tests-umbrella.h"
+
+  export *
+  module * { export * }
+}
