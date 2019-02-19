@@ -17,7 +17,7 @@
 @property(nonatomic,nonnull)NSOperationQueue * queue;
 @property(nonnull,nonatomic)NSOperationQueue * hiddenQueue;
 @property(nullable,nonatomic,weak)UITapGestureRecognizer* tap;
-@property(nonnull,nonatomic)UIWindow* alertWindow;
+@property(nullable,nonatomic)UIWindow* alertWindow;
 @property(nullable,nonatomic)void(^call)(void);
 @property(nonnull,nonatomic)NSMutableArray<UIWindow*>*  lastWindow;
 @end
@@ -26,10 +26,14 @@
 @implementation KNAlertManager
 
 - (void)loadView:(UIView *)view {
+    if(self.alertWindow == nil){
+        self.alertWindow = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
+    }
     [self.lastWindow addObject:UIApplication.sharedApplication.keyWindow];
     [self.alertWindow addSubview:view];
     [self.alertWindow makeKeyAndVisible];
     self.alertWindow.windowLevel = UIWindowLevelAlert;
+    
     
 }
 - (void)removeView:(UIView *)view {
