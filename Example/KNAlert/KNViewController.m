@@ -9,16 +9,24 @@
 #import "KNViewController.h"
 #import <KNAlert/KNAlert.h>
 @interface KNViewController ()
-
+@property(nonatomic,nullable)KNAlertManager* manager;
 @end
 
 @implementation KNViewController
 - (IBAction)touch:(id)sender {
+    __weak KNViewController* ws = self;
+    NSArray* sbt = @[[[KNAlertButtonInfo alloc] initWithTitle:@"3" Color:UIColor.redColor Font:[UIFont systemFontOfSize:11] CallBack:^(NSObject * _Nonnull object) {
+                        NSLog(@"%@",@"3");
+                        [ws.manager hiden];
+                    }]
+                    ];
+    KNAlertView* salert = [[KNAlertView alloc] initWithText:@"dddd" actions:sbt];
     NSArray* bt = @[
                     [[KNAlertButtonInfo alloc] initWithTitle:@"1" Color:UIColor.redColor Font:[UIFont systemFontOfSize:11] CallBack:^(NSObject * _Nonnull object) {
                         NSLog(@"%@",@"1");
                     }],[[KNAlertButtonInfo alloc] initWithTitle:@"2" Color:UIColor.redColor Font:[UIFont systemFontOfSize:11] CallBack:^(NSObject * _Nonnull object) {
                         NSLog(@"%@",@"2");
+                        [ws.manager showAlert:salert];
                     }],[[KNAlertButtonInfo alloc] initWithTitle:@"3" Color:UIColor.redColor Font:[UIFont systemFontOfSize:11] CallBack:^(NSObject * _Nonnull object) {
                         NSLog(@"%@",@"3");
                         [KNAlertManager.sharedInstance hiden];
@@ -43,7 +51,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    self.manager = [[KNAlertManager alloc] init];
 }
 
 - (void)didReceiveMemoryWarning
