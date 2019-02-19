@@ -13,10 +13,7 @@
 @end
 
 @implementation KNViewController
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
+- (IBAction)touch:(id)sender {
     NSArray* bt = @[
                     [[KNAlertButtonInfo alloc] initWithTitle:@"1" Color:UIColor.redColor Font:[UIFont systemFontOfSize:11] CallBack:^(NSObject * _Nonnull object) {
                         NSLog(@"%@",@"1");
@@ -34,15 +31,20 @@
         NSLog(@"%@",@"3");
         [KNAlertManager.sharedInstance hiden];
     }];
-    cancel.radius = 0;
-    cancel.backgroundColor = [UIColor.yellowColor colorWithAlphaComponent:0.1];
-    cancel.pressBackgroundColor = UIColor.blueColor;
+    cancel.radius = 8;
+    cancel.backgroundColor = UIColor.yellowColor;
+    cancel.pressBackgroundColor = [UIColor.yellowColor colorWithAlphaComponent:0.1];
     
     KNAlertSheet* sheet = [[KNAlertSheet alloc] initWithText:@"dddddd" Cancel:cancel Actions:bt];
     
     [KNAlertManager.sharedInstance showAlert:sheet];
 }
 
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+
+}
 
 - (void)didReceiveMemoryWarning
 {

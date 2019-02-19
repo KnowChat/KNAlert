@@ -19,20 +19,27 @@
 @property(nullable,nonatomic,weak)UITapGestureRecognizer* tap;
 @property(nonnull,nonatomic)UIWindow* alertWindow;
 @property(nullable,nonatomic)void(^call)(void);
+@property(nonnull,nonatomic)NSMutableArray<UIWindow*>*  lastWindow;
 @end
 
 
 @implementation KNAlertManager
 
 - (void)loadView:(UIView *)view {
+    [self.lastWindow addObject:UIApplication.sharedApplication.keyWindow];
     [self.alertWindow addSubview:view];
     [self.alertWindow makeKeyAndVisible];
     self.alertWindow.windowLevel = UIWindowLevelAlert;
+    
 }
 - (void)removeView:(UIView *)view {
-//    [view removeFromSuperview];
-//    self.windowLevel = UIWindowLevelNormal;
-//    [self.arySubViews removeObject:view];
+    [view removeFromSuperview];
+    self.alertWindow.windowLevel = UIWindowLevelNormal;
+    [self.alertWindow resignKeyWindow];
+    [self.lastWindow.lastObject makeKeyAndVisible];
+    [self.lastWindow.lastObject becomeKeyWindow];
+    [self.lastWindow removeObjectAtIndex: self.lastWindow.count - 1];
+    //    [self.arySubViews removeObject:view];
 //    if (self.arySubViews.count == 0)
 //    {
 //        [self resignKeyWindow];
@@ -187,6 +194,7 @@
         self->h = dispatch_semaphore_create(1);
         self->m = dispatch_semaphore_create(1);
         self->cancel = false;
+        self.lastWindow = [[NSMutableArray alloc] init];
     }
     return self;
 }
